@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  nginx_reverse_proxy:
+    image: nginx
+    container_name: nginx_reverse_proxy
+    restart: always
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d
+      - ./www:/var/www
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - web_service
+
+networks:
+  web_service:
+    external: true
