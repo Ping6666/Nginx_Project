@@ -8,6 +8,8 @@ services:
     volumes:
       - ./conf.d:/etc/nginx/conf.d
       - ./www:/var/www
+    depends_on:
+      - "stock"
     ports:
       - 80:80
       - 443:443
